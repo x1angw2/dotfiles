@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/wezhon/tmp'
+let g:netrw_dirhist_0='/Users/wezhon/git/hexo-wezhon/themes/next'
+let g:netrw_dirhist_9='/Users/wezhon/git/hexo-wezhon/themes'
+let g:netrw_dirhist_8='/Users/wezhon/git/hexo-wezhon/themes/next'
+let g:netrw_dirhist_7='/Users/wezhon/git/hexo/wezhon/wezhon/themes/next.git'
+let g:netrw_dirhist_6='/Users/wezhon/git/hexo/wezhon/wezhon/public/2020/08/31/brew修改国内源'
+let g:netrw_dirhist_5='/Users/wezhon/git/hexo/wezhon/wezhon/themes'
+let g:netrw_dirhist_4='/Users/wezhon/git/hexo/wezhon/wezhon/themes/yilia'
+let g:netrw_dirhist_3='/Users/wezhon/git/hexo/wezhon/wezhon/themes/next'
+let g:netrw_dirhist_2='/Users/wezhon/git/hexo/wezhon/wezhon/themes'

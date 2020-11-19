@@ -1,0 +1,36 @@
+Cheatsheet
+
+About {{{2
+  N    Normal mode
+  C    Command mode
+  I    Insert mode
+  V    Visual mode
+  M    Motion or Text object
+  O    Operator
+  *    Acts on cursor or visual text
+  %    Acts on the current buffer
+  @    Target or parameter of operation
+  #    Secondary target or parameter of operation
+}}}
+常用设置 {{{
+保存
+退出vim
+}}}
+vim-surround{{{
+添加符号									ys iw "			 N
+替换											cs " '			 N
+删除											ds '				 N
+}}}
+Window Mappings {{{
+Split horizontally       ,s            N
+Split vertically         ,v            N
+Equalize splits          ,=            N
+Rotate splits            ,r            N
+Full width split         ,-            N
+Full height vsplit       ,|            N
+Close                    ,q            N
+Close qf/loc/preview     ,c            N
+Create new tab           ,t            N
+Switch to numbered tab   ,‹@›          N
+Full width term split    ,T            N
+}}}
