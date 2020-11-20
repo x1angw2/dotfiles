@@ -136,6 +136,9 @@ call plug#begin('~/.vim/plugged')
 	Plug 'altercation/vim-colors-solarized'
 	" 主题配色
 	Plug 'bestw/vim-cheat40'
+	" 备忘录插件
+	Plug 'airblade/vim-gitgutter'
+	" Git插件
 call plug#end()
 
 "------vim-NERDTree------
