@@ -2,7 +2,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/wezhon/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -83,7 +82,6 @@ plugins=(git
         )
 
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -119,6 +117,7 @@ source $ZSH/oh-my-zsh.sh
 alias pip="pip3"
 alias py="python3"
 alias sshwezhon="ssh git@118.24.119.135"
+alias vim="nvim"
 
 # ==============================
 #  Export system
@@ -130,7 +129,7 @@ alias sshwezhon="ssh git@118.24.119.135"
 # 2. sys.path提供的路径
 # 3. 程序运行的时的路径
 
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+#export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
 export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
 # curl -i httpbin.org/get  获取IP地址
 

@@ -15,13 +15,13 @@ set wrap			" 折行
 set wildmenu			" 命令补全时提示
 set hlsearch			" 搜索关键字高亮
 set ignorecase			" 搜索忽略大小写
-set mouse=a		" 使用鼠标
+set mouse-=a		" 使用鼠标
 "set encoding=utf-8		" 编码
 "set fileencoding=utf-8
 set scrolloff=5			" 保留5行
 set showmatch				" 显示匹配的括号
 "set signcolumn=number
-
+set foldmethod=syntax
 
 
 
@@ -63,13 +63,13 @@ filetype plugin indent on
 
 "-----vim-snazzy配色-----
 "colorscheme snazzy
-"let g:SnazzyTransparent = 1		# 背景透明
+"let g:SnazzyTransparent = 1		" 背景透明
 "--vim-colors-solarized----
 "set background=dark
 "colorscheme hybrid
-colorscheme solarized
-
-
+"colorscheme solarized
+set guioptions=									" 边栏设置
+colorscheme gruvbox
 
 
 " ---------------------------
@@ -94,21 +94,14 @@ map NL :nohls<CR>
 " ---------------------------
 call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline'
-	"状态栏插件
 	Plug 'vim-airline/vim-airline-themes'
 	"下边栏美化
 
 	Plug 'connorholyday/vim-snazzy'
-	"配色插件
 
 	Plug 'dhruvasagar/vim-table-mode'
 	"Markdown 表格格式化插件
-
-	"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd ap    p && yarn install'  }
-	"Markdown实时预览
-	Plug 'iamcco/mathjax-support-for-mkdp'
-	"Markdownk 添加Latex支持
-  Plug 'iamcco/markdown-preview.vim'
+	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 	Plug 'preservim/nerdtree'
 	"文件目录树
@@ -139,6 +132,12 @@ call plug#begin('~/.vim/plugged')
 	" 备忘录插件
 	Plug 'airblade/vim-gitgutter'
 	" Git插件
+	Plug 'morhetz/gruvbox'
+	" 主题
+	Plug 'plasticboy/vim-markdown'
+  Plug 'pingao777/markdown-preview-sync'
+	Plug 'tpope/vim-commentary'
+	Plug 'lervag/vimtex'
 call plug#end()
 
 "------vim-NERDTree------
@@ -209,5 +208,57 @@ map ss <Plug>(easymotion-s2)
 
 "-----------cheat40--------
 let g:cheat40_use_default = 0
+
+"----vim-markdown-preview-----
+"let g:mkdp_echo_preview_url = 1
+"let g:mkpd_browser = 'chromium'
+
+
+"----markdown-preview-sync-----
+" Chrome和Firefox都可以，推荐使用Chrome
+" 可以这样设置Chrome路径
+let g:markdown_preview_sync_chrome_path = "/usr/bin/chromium"
+
+" 设置Firefox浏览器路径
+"let g:markdown_preview_sync_firefox_path = ""
+
+" (Optional)设置自定义CSS主题，将你的CSS文件放在autoload/java/webapp/css文件夹下，
+" 以“主题名-theme.css”方式命名，然后设置如下变量
+"let g:markdown_preview_sync_theme = "主题名"
+
+" 配置快捷键
+autocmd filetype markdown nnoremap <F9> :MarkSyncPreview<cr>
+autocmd filetype markdown nnoremap <S-F9> :MarkSyncClose<cr>
+
+
+map <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+    exec "w"
+    if &filetype == 'c'
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
+    elseif &filetype == 'cpp'
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
+    elseif &filetype == 'java' 
+        exec "!javac %" 
+        exec "!time java %<"
+    elseif &filetype == 'sh'
+        :!time bash %
+    elseif &filetype == 'python'
+        exec "!time python3 %"
+    elseif &filetype == 'html'
+        exec "!firefox % &"
+    elseif &filetype == 'go'
+        exec "!go build %<"
+        exec "!time go run %"
+    elseif &filetype == 'mkd'
+        exec "!~/.vim/markdown.pl % > %.html &"
+        exec "!firefox %.html &"
+    endif
+endfunc
+
+
+
 
 
